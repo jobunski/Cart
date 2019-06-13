@@ -1,0 +1,9 @@
+.thumbnail img {
+    max-width: 200px;
+    max-height: 200px;
+}
+
+.price {
+    font-weight: bold;
+    font-size: 18px;
+}

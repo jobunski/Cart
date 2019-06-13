@@ -1,0 +1,23 @@
+<div class="container">
+    {{# each products}}
+        <div class="row">
+            {{# each this}}
+                <div class="col-sm-6 col-md-4">
+                    <div class="thumbnail">
+                        <img src="{{this.imagePath}}" class="img-fluid">
+                        <div class="caption">
+                            <h3>{{this.title}}</h3>
+                            <p class="description">{{this.description}}</p>
+                            <p>
+                            <p class="price float-left">${{this.price}}</p>
+                            <a href="#" class="btn btn-success float-right" role="button">
+                                Add
+                            </a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            {{/each}}
+        </div>
+    {{/each}}
+</div>
