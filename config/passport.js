@@ -1,15 +1,15 @@
 var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
 var User = require('../models/users');
-const flash = require('connect-flash');
+var flash = require('connect-flash');
 
 passport.serializeUser(function (user, done) {
-    done(null, user.id)
+    return done(null, user.id)
 });
 
 passport.deserializeUser((id, done) => {
     User.findById(id, function (err, user) {
-        done(err, user);
+        return done(err, user);
     });
 });
 
@@ -56,29 +56,26 @@ passport.use('local-signin', new LocalStrategy({
     passwordField: 'password',
     passReqToCallback: true
 }, function (req, email, password, done) {
-    req.checkBody('email', 'Invalid email').notEmpty().isEmail();
-    req.checkBody('password', 'Invalid Password').notEmpty();
-    let errors = req.validationErrors();
-    if (!errors) {
+        req.checkBody('email', 'Invalid email').notEmpty().isEmail();
+        req.checkBody('password', 'Invalid Password').notEmpty();
+        let errors = req.validationErrors();
+        if (errors) {
+            let messages = [];
+            errors.forEach(function (error) {
+                messages.push(error.msg);
+            });
+            return done(null, false, req.flash('error', messages));
+        }
         User.findOne({'email': email}, function (err, user) {
             // console.log('I made it here');
             // console.log(JSON.stringify(req.body));
             if (err) {
                 return done(err)
             }
-            if (!user) {
-                return done(null, false, {message: 'Invalid email or password'})
-            }
-            if (!user.validPassword(password)) {
+            if (!user || !user.validPassword(password)) {
                 return done(null, false, {message: 'Invalid email or password'})
             }
             return done(null, user);
         });
-    } else {
-        let messages = [];
-        errors.forEach(function (error) {
-            messages.push(error.msg);
-        });
-        return done(null, false, req.flash('errors', messages));
     }
-}))
+));

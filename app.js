@@ -14,7 +14,6 @@ const validator = require('express-validator');
 const routes = require('./routes/index');
 const userRoutes = require('./routes/users');
 
-
 var app = express();
 
 // Connection to mongodb
@@ -26,6 +25,10 @@ app.set('views', path.join(__dirname, 'views'));
 app.engine('.hbs', expressHbs({defaultLayout: 'layout', extname: '.hbs'}));
 app.set('view engine', '.hbs');
 
+app.use(function (req, res, next) {
+    res.locals.login = req.isAuthenticated();
+    next();
+});
 
 app.use(logger('dev'));
 app.use(bodyParser.urlencoded({extended: false}));

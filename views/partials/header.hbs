@@ -16,8 +16,13 @@
                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="fas fa-user"></i>
                         User</a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="#">User Account</a>
-                        <a class="dropdown-item" href="#">Logout</a>
+                        {{#if login}}
+                            <a class="dropdown-item" href="/user/profile">User Account</a>
+                            <a class="dropdown-item" href="/user/logout">Logout</a>
+                        {{ else }}
+                            <a class="dropdown-item" href="/user/signup">Sign Up</a>
+                            <a class="dropdown-item" href="/user/signin">Sign In</a>
+                        {{/if }}
                     </div>
                 </li>
             </ul>
