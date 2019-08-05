@@ -23,8 +23,6 @@ passport.use('local-signup', new LocalStrategy({
         let errors = req.validationErrors();
         if (!errors) {
             User.findOne({'email': email}, function (err, user) {
-                // console.log('I made it here');
-                // console.log(JSON.stringify(req.body));
                 if (err) {
                     return done(err)
                 }

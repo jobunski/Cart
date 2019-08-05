@@ -7,7 +7,7 @@
 6 silly lifecycle cart@0.0.0~prestart: no script for prestart, continuing
 7 info lifecycle cart@0.0.0~start: cart@0.0.0
 8 verbose lifecycle cart@0.0.0~start: unsafe-perm in lifecycle true
-9 verbose lifecycle cart@0.0.0~start: PATH: /usr/share/npm/bin/node-gyp-bin:/home/jobunski/Data/node/Commerce/Cart/node_modules/.bin:/home/jobunski/Data/node/Commerce/Cart/node_modules/.bin:/home/jobunski/.local/share/umake/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
+9 verbose lifecycle cart@0.0.0~start: PATH: /usr/share/npm/bin/node-gyp-bin:/home/jobunski/Data/node/Commerce/Cart/node_modules/.bin:/home/jobunski/Data/node/Commerce/Cart/node_modules/.bin:/home/jobunski/.local/share/umake/bin:/home/jobunski/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
 10 verbose lifecycle cart@0.0.0~start: CWD: /home/jobunski/Data/node/Commerce/Cart
 11 silly lifecycle cart@0.0.0~start: Args: [ '-c', 'node ./bin/www' ]
 12 silly lifecycle cart@0.0.0~start: Returned: code: 1  signal: null
@@ -24,7 +24,7 @@
 14 verbose stack     at Process.ChildProcess._handle.onexit (internal/child_process.js:209:5)
 15 verbose pkgid cart@0.0.0
 16 verbose cwd /home/jobunski/Data/node/Commerce/Cart
-17 error Linux 4.15.0-51-generic
+17 error Linux 4.15.0-55-generic
 18 error argv "/usr/bin/node" "/usr/bin/npm" "start"
 19 error node v8.10.0
 20 error npm  v3.5.2
