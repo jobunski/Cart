@@ -22,21 +22,30 @@ router.get('/', function (req, res, next) {
     });
 });
 
-router.get('/add-to-cart/', function (req, res, next) {
+router.get('/add-to-cart/:id', function (req, res, next) {
     var productId = req.params.id;
     console.log('I am about to break');
-    var cart = new Cart(req.session.cart ? req.session.cart : {});
+    var cart = new Cart(req.session.cart ? req.session.cart : {items: {}});
 
     Product.findById(productId, function (err, product) {
         if (err) {
             return res.redirect('/')
         }
-        ;
         cart.add(product, product.id);
         req.session.cart = cart;
         console.log(req.session.cart);
         res.redirect('/');
     });
+});
+
+router.get('/shopping-cart', function (req, res, next) {
+    console.log(req.session.cart);
+    if (req.session.cart) {
+        var cart = new Cart(req.session.cart);
+        res.render('shop/shopping-cart', {products: cart.generateArray(), totalPrice: cart.totalPrice});
+    } else {
+        return res.render('shop/shopping-cart', {products: null});
+    }
 });
 
 module.exports = router;
