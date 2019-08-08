@@ -165,6 +165,17 @@ label {
     border-radius: 3px;
 }
 
+.contshopping {
+    float: left;
+    border: 0;
+    margin-top: 20px;
+    padding: 5px 20px;
+    background-color: #ff8c00;
+    color: #fff;
+    font-size: 25px;
+    border-radius: 2px;
+}
+
 .checkout:hover {
     background-color: #494;
 }

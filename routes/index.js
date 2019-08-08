@@ -40,13 +40,13 @@ router.get('/add-to-cart/:id', function (req, res, next) {
 
 router.get('/shopping-cart', function (req, res, next) {
     console.log(req.session.cart);
-    res.render('shop/cartdemo');
-    // if (req.session.cart) {
-    //     var cart = new Cart(req.session.cart);
-    //     res.render('shop/shopping-cart', {products: cart.generateArray(), totalPrice: cart.totalPrice});
-    // } else {
-    //     return res.render('shop/shopping-cart', {products: null});
-    // }
+    // res.render('shop/cartdemo');
+    if (req.session.cart) {
+        var cart = new Cart(req.session.cart);
+        res.render('shop/shopping-cart', {products: cart.generateArray(), totalPrice: cart.totalPrice});
+    } else {
+        return res.render('shop/shopping-cart', {products: null});
+    }
 });
 
 module.exports = router;
