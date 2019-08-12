@@ -2,18 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0964f419-7ae0-40a9-ab1f-690f0419378b" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/mongoSettings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/models/order.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/javascript/checkout.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/shop/checkout.hbs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/cart.js" beforeDir="false" afterPath="$PROJECT_DIR$/models/cart.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/stylesheets/product.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/stylesheets/product.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/users.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/users.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/shop/cartdemo.hbs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/shop/index.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/views/shop/index.hbs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/views/shop/shopping-cart.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/views/shop/shopping-cart.hbs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/user/signin.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/views/user/signin.hbs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/user/profile.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/views/user/profile.hbs" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -138,7 +133,7 @@
       <workItem from="1565526406493" duration="113000" />
       <workItem from="1565526570879" duration="1928000" />
       <workItem from="1565544974818" duration="9174000" />
-      <workItem from="1565584009080" duration="11513000" />
+      <workItem from="1565584009080" duration="17479000" />
     </task>
     <task id="LOCAL-00001" summary="Demo Cart Page">
       <created>1565209849662</created>
@@ -154,7 +149,14 @@
       <option name="project" value="LOCAL" />
       <updated>1565249303403</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Working card+Stripe payment validation and charging">
+      <created>1565597167263</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1565597167263</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -196,7 +198,8 @@
     <MESSAGE value="Proper login and sign up.&#10;&#10;Headers partials not working effectively." />
     <MESSAGE value="Demo Cart Page" />
     <MESSAGE value="Working Cart Demo page" />
-    <option name="LAST_COMMIT_MESSAGE" value="Working Cart Demo page" />
+    <MESSAGE value="Working card+Stripe payment validation and charging" />
+    <option name="LAST_COMMIT_MESSAGE" value="Working card+Stripe payment validation and charging" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
 </project>

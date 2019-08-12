@@ -23,9 +23,9 @@
                             <div class="product-price">{{this.item.price}}</div>
                             <div class="product-quantity">{{this.qty}}</div>
                             <div class="product-removal">
-                                <button class="remove-product">
+                                <a href="/reduce/{{this.item._id}}" type=" button" class="remove-product">
                                     Remove
-                                </button>
+                                </a>
                             </div>
                             <div class="product-line-price">{{this.price}}</div>
                         </div>

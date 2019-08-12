@@ -1,1 +1,37 @@
-<h1>User Profile</h1>
+<div class="row">
+    <div class="col-md-8 offset-md-2 profile">
+        <h>User Profile</h>
+        <h2>My Orders</h2>
+        {{# each orders }}
+            <div class="column-labels">
+                <label class="product-price">Price</label>
+                <label class="product-details">Product</label>
+                <label class="product-quantity">Quantity</label>
+            </div>
+            <div class="card ">
+                <div class="card-body">
+                    <ul class="list-group">
+                        {{# each this.items }}
+                            <li class="list-group-item">
+                                <span class="badge product-price">
+                                    {{ this.price }}
+                                </span>
+                                <span class="product-description">
+                                    {{ this.item.title }}
+                                </span>
+                                <span class="product-price">
+                                    {{ this.qty }}
+                                </span>
+
+                            </li>
+                        {{/each}}
+                    </ul>
+                </div>
+                <div class="card-footer">
+                    <strong>Total Price: ${{ this.cart.totalPrice }}</strong>
+                </div>
+            </div>
+        {{/each}}
+    </div>
+</div>
+</div>

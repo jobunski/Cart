@@ -5,6 +5,7 @@ var passport = require('passport');
 
 
 var Order = require('../models/order');
+var Cart = require('../models/cart');
 
 var csrfProtection = csrf();
 router.use(csrfProtection);
@@ -15,11 +16,15 @@ router.get('/profile', userAuthenticated, function (req, res, next) {
         if (err) {
             return res.write('Error')
         }
+        var cart;
         orders.forEach(function (order) {
 
-        })
+            cart = new Cart(order.cart);
+            order.items = cart.generateArray();
+
+        });
+        res.render('user/profile', {orders: orders});
     });
-    res.render('user/profile');
 });
 
 //Logging out
