@@ -3,12 +3,22 @@ var router = express.Router();
 var csrf = require('csurf');
 var passport = require('passport');
 
-var Product = require('../models/product');
+
+var Order = require('../models/order');
+
 var csrfProtection = csrf();
 router.use(csrfProtection);
 
 //Get to the users profile
 router.get('/profile', userAuthenticated, function (req, res, next) {
+    Order.find({user: req.user}, function (err, orders) {
+        if (err) {
+            return res.write('Error')
+        }
+        orders.forEach(function (order) {
+
+        })
+    });
     res.render('user/profile');
 });
 
@@ -31,11 +41,20 @@ router.get('/signup', function (req, res, next) {
 });
 
 router.post('/signup', passport.authenticate('local-signup', {
-    successRedirect: '/user/profile',
         failureRedirect: '/user/signup',
         failureFlash: true
     }
-));
+), function (req, res, next) {
+    if (req.session.oldUrl) {
+        var oldUrl = req.session.oldUrl;
+        req.session.oldUrl = null;
+        res.redirect(oldUrl);
+
+    } else {
+        res.redirect('/user/profile')
+    }
+
+});
 
 //Get to the signin page
 router.get('/signin', function (req, res, next) {
@@ -44,11 +63,19 @@ router.get('/signin', function (req, res, next) {
 });
 
 router.post('/signin', passport.authenticate('local-signin', {
-        successRedirect: '/user/profile',
         failureRedirect: '/user/signin',
         failureFlash: true
     }
-));
+), function (req, res, next) {
+    if (req.session.oldUrl) {
+        var oldUrl = req.session.oldUrl;
+        req.session.oldUrl = null;
+        res.redirect(oldUrl);
+    } else {
+        res.redirect('/user/profile')
+    }
+
+});
 
 module.exports = router;
 
